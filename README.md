@@ -1,9 +1,23 @@
+
+
 Mmseg Analysis for Elasticsearch
 ==================================
 
 The Mmseg Analysis plugin integrates Lucene mmseg4j-analyzer:http://code.google.com/p/mmseg4j/ into elasticsearch, support customized dictionary.
 
-The plugin ships with analyzers: `mmseg_maxword`  ,`mmseg_complex` ,`mmseg_simple` and tokenizers: `mmseg_maxword`  ,`mmseg_complex` ,`mmseg_simple`  and token_filter: `cut_letter_digit` .
+The plugin ships with analyzers: `mmseg_dicfirst`, `mmseg_maxword`  ,`mmseg_complex` ,`mmseg_simple` and tokenizers: `mmseg_maxword`  ,`mmseg_complex` ,`mmseg_simple`  and token_filter: `cut_letter_digit` .
+
+Meron changelog
+==================================
+·增加分词器:mmseg_dicfirst，在mmseg_maxword的基础上根据words-first.dic词典进行分词，只要输入语句中存在words-first.dic中的词，则肯定会拆出该词
+
+Doc
+==================================
+·同义词和停词请使用es子自带的功能
+·词典都是要UTF-8编码，Unix文件格式
+·自定义词典名称必须是words*.dic
+·mmseg_dicfirst分词器需要words-first.dic词典，找不到该词典则等同于mmseg_maxword
+
 
 Versions
 --------
@@ -12,18 +26,6 @@ Mmseg ver  | ES version
 -----------|-----------
 master | 5.x -> master
 5.4.1 | 5.4.1
-5.3.2 | 5.3.2
-5.2.2 | 5.2.2
-5.1.2 | 5.1.2
-1.10.1 | 2.4.1
-1.9.5 | 2.3.5
-1.8.1 | 2.2.1
-1.7.0 | 2.1.1
-1.5.0 | 2.0.0
-1.4.0 | 1.7.0
-1.3.0 | 1.6.0
-1.2.1 | 0.90.2
-1.1.2 | 0.20.1
 
 
 Package
