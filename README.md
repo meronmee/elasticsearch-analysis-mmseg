@@ -55,24 +55,54 @@ curl -XPUT http://localhost:9200/index
 ```
 
 2.Create a mapping
+```
+curl -XPUT http://localhost:9200/myindex -d'
+{
+    "settings": {
+        "index" : {
+            "analysis" : {
+                "analyzer" : {
+                    "mmseg_dicfirst" : {
+                        "tokenizer" : "mmseg_dicfirst",
+                        "filter" : ["synonym", "mystop", "cut_letter_digit"],
+                        "ignore_case": true,
+                        "expand":true
+                    }
+                },
+                "filter" : {
+                    "synonym" : {
+                        "type" : "synonym",
+                        "synonyms_path" : "analysis/synonym.txt"
+                    },
+                    "mystop" : {
+                        "type" : "stop",
+                        "stopwords_path" : "analysis/stop.txt"
+                    }
+                }
+            }
+        }
+    }
+}'
+```
+
 
 ```
-curl -XPOST http://localhost:9200/index/fulltext/_mapping -d'
+curl -XPOST http://localhost:9200/myindex/mytype/_mapping -d'
 {
-    "fulltext": {
-             "_all": {
-            "analyzer": "mmseg_maxword",
-            "search_analyzer": "mmseg_maxword",
+    "mytype": {
+        "_all": {
+            "analyzer": "mmseg_dicfirst",
+            "search_analyzer": "mmseg_dicfirst",
             "term_vector": "no",
             "store": "false"
         },
         "properties": {
-            "content": {
+            "myfield": {
                 "type": "text",
                 "store": "no",
                 "term_vector": "with_positions_offsets",
-                "analyzer": "mmseg_maxword",
-                "search_analyzer": "mmseg_maxword",
+                "analyzer": "mmseg_dicfirst",
+                "search_analyzer": "mmseg_dicfirst",
                 "include_in_all": "true",
                 "boost": 8
             }
@@ -80,6 +110,7 @@ curl -XPOST http://localhost:9200/index/fulltext/_mapping -d'
     }
 }'
 ```
+
 
 3.Indexing some docs
 
