@@ -9,14 +9,14 @@ The plugin ships with analyzers: `mmseg_dicfirst`, `mmseg_maxword`  ,`mmseg_comp
 
 Meron changelog
 ==================================
-·增加分词器:mmseg_dicfirst，在mmseg_maxword的基础上根据words-first.dic词典进行分词，只要输入语句中存在words-first.dic中的词，则肯定会拆出该词
+- 增加分词器:mmseg_dicfirst，在mmseg_maxword的基础上根据words-first.dic词典进行分词，只要输入语句中存在words-first.dic中的词，则肯定会拆出该词
 
 Doc
 ==================================
-·同义词和停词请使用es子自带的功能
-·词典都是要UTF-8编码，Unix文件格式
-·自定义词典名称必须是words*.dic
-·mmseg_dicfirst分词器需要words-first.dic词典，找不到该词典则等同于mmseg_maxword
+- 同义词和停词请使用ES自带的功能
+- 词典都是要UTF-8编码，Unix文件格式
+- 自定义词典名称必须是words*.dic
+- mmseg_dicfirst分词器需要words-first.dic词典，找不到该词典则等同于mmseg_maxword
 
 
 Versions
