@@ -10,6 +10,7 @@ The plugin ships with analyzers: `mmseg_dicfirst`, `mmseg_maxword`  ,`mmseg_comp
 Meron changelog
 ==================================
 - 增加分词器:mmseg_dicfirst，在mmseg_maxword的基础上根据words-first.dic词典进行分词，只要输入语句中存在words-first.dic中的词，则肯定会拆出该词
+- mmseg_maxword 分词器在 mmseg_complex基础上保留分词结果进一步尝试分词
 
 Doc
 ==================================

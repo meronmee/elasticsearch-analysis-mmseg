@@ -25,6 +25,8 @@ public class MaxWordSeg extends ComplexSeg {
 				if(word.getLength() < 3) {
 					cks.add(word);
 				} else {
+					cks.add(word);//加入原词，meron，2017-08-02 15:10:22
+					
 					char[] chs = word.getSen();
 					int offset = word.getWordOffset(), n = 0, wordEnd = word.getWordOffset()+word.getLength();
 					int senStartOffset = word.getStartOffset() - offset;	//sen 在文件中的位置
