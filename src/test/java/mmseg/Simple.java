@@ -16,12 +16,11 @@ public class Simple extends Complex {
     }
 
     protected Seg getSeg() {
-
 		return new SimpleSeg(dic);
 	}
 
 	public static void main(String[] args) throws IOException {
-		new Simple("E:/WorkSpace/JavaDemo/elasticsearch-analysis-mmseg-5.4.1/config/mmseg/").run(args);
+		new Simple("D:/Dev/elasticsearch-5.4.1/plugins/elasticsearch-analysis-mmseg-5.4.1/config/mmseg/").run(args);
 	}
 
 }

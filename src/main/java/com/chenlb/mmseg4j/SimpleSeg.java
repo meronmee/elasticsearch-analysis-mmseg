@@ -23,7 +23,7 @@ public class SimpleSeg extends Seg{
 			maxLen = dic.maxMatch(chs, offset);
 			
 			chunk.words[k] = new Word(chs, sen.getStartOffset(), offset, maxLen+1);
-
+			
 			offset += maxLen + 1;
 			sen.setOffset(offset);
 		}

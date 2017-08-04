@@ -101,4 +101,11 @@ public abstract class Seg {
 	public Chunk fullSenSeg(Sentence sen){
 		return null;
 	}
+	
+	public static void log(Object... objs){
+		for(Object obj : objs){
+			System.out.print(String.valueOf(obj));
+		}
+		System.out.println();
+	}
 }

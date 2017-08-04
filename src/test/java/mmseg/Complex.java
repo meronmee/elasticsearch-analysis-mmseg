@@ -80,7 +80,7 @@ public class Complex {
 	}
 	
 	public static void main(String[] args) throws IOException {		
-		new Complex("E:/WorkSpace/JavaDemo/elasticsearch-analysis-mmseg-5.4.1/config/mmseg/").run(args);
+		new Complex("D:/Dev/elasticsearch-5.4.1/plugins/elasticsearch-analysis-mmseg-5.4.1/config/mmseg/").run(args);
 	}
 
 }

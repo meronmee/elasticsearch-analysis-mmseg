@@ -11,6 +11,8 @@ public class Sentence {
 	private int startOffset;
 	
 	private int offset;
+	/**cn:中文句子, en:英文句子*/
+	private String type="cn";
 
 	public Sentence() {
 		text = new char[0];
@@ -58,4 +60,14 @@ public class Sentence {
 	public void setStartOffset(int startOffset) {
 		this.startOffset = startOffset;
 	}
+
+	/**cn:中文句子, en:英文句子*/
+	public String getType() {
+		return type;
+	}
+	/**cn:中文句子, en:英文句子*/
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 }

@@ -100,10 +100,15 @@ public class MMSeg {
 						readChars(bufSentence, new ReadCharByGreece());
 						break;
 					}
+					
 					bufWord.add(createWord(bufSentence, wordType));
-
+					
+					if(wordType == Word.TYPE_LETTER_OR_DIGIT){
+						currentSentence = createSentence(bufSentence);
+						currentSentence.setType("en");
+					}
+					
 					bufSentence.setLength(0);
-
 					break;
 				case Character.OTHER_LETTER:
 					/*
@@ -174,15 +179,17 @@ public class MMSeg {
 				
 			// 中文分词
 			if(currentSentence != null) {
-				do {					
-					Chunk chunk = seg.seg(currentSentence);
-					if(chunk!=null){
-						for(int i=0; i<chunk.getCount(); i++) {
-							bufWord.add(chunk.getWords()[i]);
+				String type = currentSentence.getType();
+				if(!"en".equals(type)){
+					do {			
+						Chunk chunk = seg.seg(currentSentence);
+						if(chunk!=null){
+							for(int i=0; i<chunk.getCount(); i++) {
+								bufWord.add(chunk.getWords()[i]);
+							}
 						}
-					}
-				} while (!currentSentence.isFinish());
-				
+					} while (!currentSentence.isFinish());
+				}
 				//added by meorn, 2017-08-01 11:03:52,主要为了DicFirstSeg
 				Chunk chunk = seg.fullSenSeg(currentSentence);
 				if(chunk!=null){

@@ -16,6 +16,6 @@ public class DicFirst extends Complex {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new DicFirst("E:/WorkSpace/JavaDemo/elasticsearch-analysis-mmseg-5.4.1/config/mmseg/").run(args);
+		new DicFirst("D:/Dev/elasticsearch-5.4.1/plugins/elasticsearch-analysis-mmseg-5.4.1/config/mmseg/").run(args);
 	}
 }
